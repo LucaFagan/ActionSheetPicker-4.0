@@ -239,6 +239,10 @@ CG_INLINE BOOL isIPhone4() {
         }
     }
     
+    if (@available(iOS 26.0, *)) {
+        height += 16.0; // extra top padding for iOS 26 style
+    }
+    
     /// Bottom padding for iPhone X style phones (adds some additional height for the home bar).
     if (@available(iOS 11.0, *)) {
         UIWindow *window = UIApplication.sharedApplication.keyWindow;
@@ -246,7 +250,7 @@ CG_INLINE BOOL isIPhone4() {
     }
     
     UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, height)];
-
+    
     // to fix bug, appeared only on iPhone 4 Device: https://github.com/skywinder/ActionSheetPicker-3.0/issues/5
     if (isIPhone4()) {
         masterView.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0];
@@ -277,7 +281,7 @@ CG_INLINE BOOL isIPhone4() {
     // Centers the pickerView frame in cases where the pickerView is not as wide as masterView
     CGFloat xOffset = (CGRectGetWidth(masterView.frame) - CGRectGetWidth(self.pickerView.frame)) / 2;
     self.pickerView.frame = CGRectMake(xOffset,
-                                       CGRectGetMinY(self.pickerView.frame),
+                                       CGRectGetMinY(self.pickerView.frame) + 8.0,
                                        CGRectGetWidth(self.pickerView.frame),
                                        CGRectGetHeight(self.pickerView.frame));
     
@@ -500,7 +504,12 @@ CG_INLINE BOOL isIPhone4() {
 
 
 - (UIToolbar *)createPickerToolbarWithTitle:(NSString *)title {
-    CGRect frame = CGRectMake(0, 0, self.viewSize.width, 44);
+    CGRect frame;
+    if (@available(iOS 26.0, *)) {
+        frame = CGRectMake(0, 16, self.viewSize.width, 44);
+    } else {
+        frame = CGRectMake(0, 0, self.viewSize.width, 44);
+    }
     UIToolbar *pickerToolbar = [[UIToolbar alloc] initWithFrame:frame];
     pickerToolbar.barStyle = UIBarStyleDefault;
 
@@ -532,6 +541,14 @@ CG_INLINE BOOL isIPhone4() {
         UIBarButtonItem *labelButton;
 
         labelButton = [self createToolbarLabelWithTitle:title titleTextAttributes:self.titleTextAttributes andAttributedTitle:self.attributedTitle];
+        
+        // iOS 26+ remove background for label button
+        if (@available(iOS 26.0, *)) {
+            SEL sel = NSSelectorFromString(@"setHidesSharedBackground:");
+            if ([labelButton respondsToSelector:sel]) {
+                [labelButton setValue:@(YES) forKey:@"hidesSharedBackground"];
+            }
+        }
 
         [barItems addObject:labelButton];
         [barItems addObject:flexSpace];
@@ -578,21 +595,26 @@ CG_INLINE BOOL isIPhone4() {
 
         [toolBarItemLabel setFont:[UIFont boldSystemFontOfSize:16]];
         toolBarItemLabel.text = aTitle;
-
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "UnavailableInDeploymentTarget"
-        textSize = [[toolBarItemLabel text] sizeWithAttributes:@{NSFontAttributeName : [toolBarItemLabel font]}];
-#pragma clang diagnostic pop
     }
 
-    strikeWidth = textSize.width;
-
-    if (strikeWidth < 180) {
+    // Fix for iOS 26+
+    if (@available(iOS 26.0, *)) {
+        CGFloat maxWidth = UIScreen.mainScreen.bounds.size.width * 0.8;
+        [toolBarItemLabel.widthAnchor constraintLessThanOrEqualToConstant:maxWidth].active = YES;
+        [toolBarItemLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow
+                                                          forAxis:UILayoutConstraintAxisHorizontal];
+        [toolBarItemLabel setContentHuggingPriority:UILayoutPriorityDefaultLow
+                                            forAxis:UILayoutConstraintAxisHorizontal];
+    } else {
         [toolBarItemLabel sizeToFit];
+        if (CGRectGetWidth(toolBarItemLabel.frame) < 180) {
+            CGRect frame = toolBarItemLabel.frame;
+            frame.size.width = 180;
+            toolBarItemLabel.frame = frame;
+        }
     }
 
-    UIBarButtonItem *buttonLabel = [[UIBarButtonItem alloc] initWithCustomView:toolBarItemLabel];
-    return buttonLabel;
+    return [[UIBarButtonItem alloc] initWithCustomView:toolBarItemLabel];
 }
 
 - (UIBarButtonItem *)createButtonWithType:(UIBarButtonSystemItem)type target:(id)target action:(SEL)buttonAction {
