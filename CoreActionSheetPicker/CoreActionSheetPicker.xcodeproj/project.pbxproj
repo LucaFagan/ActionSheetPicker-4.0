@@ -250,7 +250,7 @@
 					};
 					1CCA904D1AE0EFB000368F5E = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 5UH69GW6GE;
+						DevelopmentTeam = 4963GEMBDD;
 					};
 				};
 			};
@@ -496,6 +496,7 @@
 		1CCA905D1AE0EFB000368F5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4963GEMBDD;
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -511,6 +512,7 @@
 		1CCA905E1AE0EFB000368F5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4963GEMBDD;
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INFOPLIST_FILE = CoreActionSheetPickerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name = 'ActionSheetPicker-3.0'
+  spec.name = 'ActionSheetPicker-4.0'
   spec.version = '2.7.5'
   spec.summary = 'Easily present an ActionSheet with a PickerView, allowing the user to select from a number of immutable options.'
   spec.description  = <<-DESC
@@ -10,11 +10,11 @@ Pod::Spec.new do |spec|
    - Universal (iPhone/iPod/iPad)
   DESC
 
-  spec.homepage = 'https://github.com/skywinder/ActionSheetPicker-3.0'
-  spec.screenshots   = [ "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/date.png",
-                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/distance.png",
-                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/ipad.png",
-                         "http://skywinder.github.io/ActionSheetPicker-3.0/Screenshots/string.png"]
+  spec.homepage = 'https://github.com/LucaFagan/ActionSheetPicker-4.0'
+  spec.screenshots   = [ "https://github.com/LucaFagan/ActionSheetPicker-4.0/Screenshots/date.png",
+                         "https://github.com/LucaFagan/ActionSheetPicker-4.0/Screenshots/distance.png",
+                         "https://github.com/LucaFagan/ActionSheetPicker-4.0/Screenshots/ipad.png",
+                         "https://github.com/LucaFagan/ActionSheetPicker-4.0/Screenshots/string.png"]
   spec.license = 'BSD'
   spec.authors = {
     'Petr Korolev' => 'https://github.com/skywinder',
@@ -23,7 +23,7 @@ Pod::Spec.new do |spec|
   }
   spec.social_media_url   = "https://twitter.com/skywinder/"
   spec.platform = :ios, "9.0"
-  spec.source = { :git => 'https://github.com/skywinder/ActionSheetPicker-3.0.git', :tag => "#{spec.version}" }
+  spec.source = { :git => 'https://github.com/LucaFagan/ActionSheetPicker-4.0.git', :tag => "#{spec.version}" }
   spec.source_files = 'CoreActionSheetPicker/CoreActionSheetPicker/Pickers/**/*.{h,m}'
   spec.framework = 'UIKit'
   spec.requires_arc = true

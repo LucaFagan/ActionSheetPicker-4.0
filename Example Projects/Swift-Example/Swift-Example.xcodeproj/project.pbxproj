@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,9 @@
 		1C5784591B15BE2C00172D8A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5784581B15BE2C00172D8A /* Images.xcassets */; };
 		1C5784681B15BE2C00172D8A /* Swift_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5784671B15BE2C00172D8A /* Swift_ExampleTests.swift */; };
 		1C5784721B15BE8900172D8A /* SWTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5784711B15BE8900172D8A /* SWTableViewController.swift */; };
-		1C82C2D51C930C2B00F9520C /* CoreActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C82C2D41C930C2B00F9520C /* CoreActionSheetPicker.framework */; };
 		4E03C75B24597E7C00F9300B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E03C75A24597E7C00F9300B /* LaunchScreen.storyboard */; };
+		816FAD1C2F48FBB5009CAED0 /* CoreActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816FAD1B2F48FBB5009CAED0 /* CoreActionSheetPicker.framework */; };
+		816FAD1D2F48FBB5009CAED0 /* CoreActionSheetPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 816FAD1B2F48FBB5009CAED0 /* CoreActionSheetPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,12 +28,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1C1194891B5E53EB00C68054 /* Embed Frameworks */ = {
+		816FAD1E2F48FBB5009CAED0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				816FAD1D2F48FBB5009CAED0 /* CoreActionSheetPicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +53,7 @@
 		1C5784711B15BE8900172D8A /* SWTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SWTableViewController.swift; path = ViewControllers/SWTableViewController.swift; sourceTree = "<group>"; };
 		1C82C2D41C930C2B00F9520C /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreActionSheetPicker.framework; path = "../../CoreActionSheetPicker/build/Debug-iphoneos/CoreActionSheetPicker.framework"; sourceTree = "<group>"; };
 		4E03C75A24597E7C00F9300B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		816FAD1B2F48FBB5009CAED0 /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreActionSheetPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C82C2D51C930C2B00F9520C /* CoreActionSheetPicker.framework in Frameworks */,
+				816FAD1C2F48FBB5009CAED0 /* CoreActionSheetPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +81,7 @@
 				1C82C2D41C930C2B00F9520C /* CoreActionSheetPicker.framework */,
 				1C57844E1B15BE2C00172D8A /* Swift-Example */,
 				1C5784641B15BE2C00172D8A /* Swift-ExampleTests */,
+				816FAD1A2F48FBB5009CAED0 /* Frameworks */,
 				1C57844D1B15BE2C00172D8A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +133,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		816FAD1A2F48FBB5009CAED0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				816FAD1B2F48FBB5009CAED0 /* CoreActionSheetPicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,7 +151,7 @@
 				1C5784481B15BE2C00172D8A /* Sources */,
 				1C5784491B15BE2C00172D8A /* Frameworks */,
 				1C57844A1B15BE2C00172D8A /* Resources */,
-				1C1194891B5E53EB00C68054 /* Embed Frameworks */,
+				816FAD1E2F48FBB5009CAED0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,7 +192,6 @@
 				TargetAttributes = {
 					1C57844B1B15BE2C00172D8A = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 5UH69GW6GE;
 						LastSwiftMigration = 1120;
 					};
 					1C5784601B15BE2C00172D8A = {
@@ -200,6 +211,9 @@
 				Base,
 			);
 			mainGroup = 1C5784431B15BE2C00172D8A;
+			packageReferences = (
+				816FAD172F48FA8B009CAED0 /* XCLocalSwiftPackageReference "../../../ActionSheetPicker-4.0" */,
+			);
 			productRefGroup = 1C57844D1B15BE2C00172D8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -374,7 +388,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -385,9 +400,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4963GEMBDD;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Swift-Example/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "SW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -398,9 +417,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4963GEMBDD;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Swift-Example/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "SW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -420,7 +443,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Swift-ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "SW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -437,7 +464,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Swift-ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "SW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -476,6 +507,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		816FAD172F48FA8B009CAED0 /* XCLocalSwiftPackageReference "../../../ActionSheetPicker-4.0" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../ActionSheetPicker-4.0";
+		};
+/* End XCLocalSwiftPackageReference section */
 	};
 	rootObject = 1C5784441B15BE2C00172D8A /* Project object */;
 }

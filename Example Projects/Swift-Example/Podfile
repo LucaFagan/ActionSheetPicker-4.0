@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'Swift-Example' do
 
-pod 'ActionSheetPicker-3.0'
+pod 'ActionSheetPicker-4.0'
 
 end
 
