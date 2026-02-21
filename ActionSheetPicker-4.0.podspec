@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'ActionSheetPicker-4.0'
-  spec.version = '2.7.5'
+  spec.version = '2.7.6'
   spec.summary = 'Easily present an ActionSheet with a PickerView, allowing the user to select from a number of immutable options.'
   spec.description  = <<-DESC
  Better version of ActionSheetPicker with support iOS9 and other improvements:
